@@ -8,7 +8,11 @@ const bodyParser = require('body-parser');
 const expressSession = require('express-session')({
   secret: 'secret',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: true,
+  cookie: {
+    secure: false,
+    maxAge: 90000
+  }
 });
 
 app.use(bodyParser.json());
@@ -96,6 +100,6 @@ app.get('/user',
 );
 /* REGISTER SOME USERS */
 
-UserDetails.register({username:'paul', active: false}, 'paul');
-UserDetails.register({username:'jay', active: false}, 'jay');
-UserDetails.register({username:'roy', active: false}, 'roy');
+UserDetails.register({username:'ppaul', active: false}, 'ppaul');
+UserDetails.register({username:'jjay', active: false}, 'jjay');
+UserDetails.register({username:'rroy', active: false}, 'rroy');
